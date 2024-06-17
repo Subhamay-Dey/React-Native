@@ -1,34 +1,30 @@
-import { StyleSheet, Text, View } from "react-native";
+import {Image, StyleSheet, Text, View } from "react-native";
+import { StatusBar } from 'expo-status-bar';
+import React from "react";
+import { hp, wp } from "@/helpers/common";
 
-export default function Page() {
+const WelcomeScreen = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
-      </View>
+      <StatusBar style="light"/>
+      <Image
+        source={require('../assets/images/welcome.png')}
+        style={styles.bgImage}
+        resizeMode="cover"
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
-  },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
-  },
+    container: {
+      flex: 1,
+    },
+    bgImage: {
+      width: wp(100),
+      height: hp(100),
+      position: 'absolute',
+    }
 });
+
+export default WelcomeScreen;
